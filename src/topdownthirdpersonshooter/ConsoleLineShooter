@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+class Main {
+	public static void main(String[] args) {
+		int health = 3;
+		// blankLine = " " * 23;
+		String[] enemyArr = {"O O O O O O O O O O O", "  O O O O O O O O O  ", "    O O O O O O O    ", "                     ", "                     ", "                     ", "                     "};
+		String enemies = String.join("\n", enemyArr);
+		String player = "\n          A          ";
+		while (health > 0) {
+			System.out.println(enemies + player);
+			Scanner sc = new Scanner(System.in);
+			String input = sc.nextLine();
+			switch (input) {
+				case "a":
+					if (!(player.charAt(1) == 'A')) {
+						StringBuilder playerSB = new StringBuilder(player);
+						playerSB.deleteCharAt(1);
+						player = playerSB.toString();
+						player = player + " ";
+						break;
+					}
+				case "d":
+					if (!(player.charAt(21) == 'A')) {
+						StringBuilder playerSB = new StringBuilder(player);
+						playerSB.deleteCharAt(21);
+						playerSB.insert(1, " ");
+						player = playerSB.toString();
+						break;
+          }
+				}
+			}
+		}
+	}
+}
